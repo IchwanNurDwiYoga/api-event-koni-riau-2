@@ -28,7 +28,7 @@ class CaborApiController extends Controller
             ->join('atlet', 'atlet.id', '=', 'peserta_event.atlet_id')
             ->join('profil', 'profil.id', '=', 'atlet.profil_id')
             ->join('cabor', 'cabor.id', '=', 'atlet.cabor_id')
-            ->select('peserta_event.event_id', 'cabor.id as cabor_id', 'atlet.id as atlet_id', 'profil.nama as nama_atlet', 'profil.foto',)
+            ->select('peserta_event.event_id', 'cabor.id as cabor_id', 'atlet.id as atlet_id', 'profil.nama as nama_atlet', 'profil.foto', 'cabor.nama as nama_cabor')
             ->get();
 
         return response()->json(['data' => $atlets]);
