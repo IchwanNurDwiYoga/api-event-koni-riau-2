@@ -22,7 +22,7 @@ class CaborApiController extends Controller
     public function caborDetail($id)
     {
         $cabor = CaborPesertaEvent::where('event_id', 62)->first();
-        $atlets = Atlet::where('cabor_id', $cabor->id)->with('profil:id,nama')->get();
+        $atlets = Atlet::where('cabor_id', $id)->with('profil:id,nama')->get();
 
         return response()->json(['data' => $atlets]);
     }
