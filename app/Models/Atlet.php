@@ -29,4 +29,9 @@ class Atlet extends Model
     {
         return $this->belongsTo(Cabor::class);
     }
+
+    public function pesertaEvent()
+    {
+        return $this->hasMany(PesertaEvent::class);
+    }
 }
