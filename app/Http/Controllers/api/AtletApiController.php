@@ -12,13 +12,13 @@ class AtletApiController extends Controller
     {
         $atlet = Atlet::with('profil:id,nama,foto', 'cabor:id,nama,foto')->get();
 
-        return response()->json($atlet);
+        return response()->json(['data' => $atlet]);
     }
 
     public function atletDetail($id)
     {
         $atlet = Atlet::where('id', $id)->with('profil:id,nama,foto', 'cabor:id,nama,foto')->first();
 
-        return response()->json($atlet);
+        return response()->json(['data' => $atlet]);
     }
 }
