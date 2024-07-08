@@ -13,9 +13,9 @@ class CaborApiController extends Controller
     public function index()
     {
         $cabor = CaborPesertaEvent::where('event_id', 62)
-            ->join('cabor', 'cabor_peserta_event.id', '=', 'cabor.id')
-            ->orderBy('nama')
-            ->get();
+            ->join('cabor', 'cabor.id', '=', 'cabor_peserta_event.cabor_id')
+            ->select('cabor.nama', 'cabor.id as cabor_id', 'cabor_peserta_event.*', 'cabor.foto')
+            ->orderBy('cabor.nama')->get();
         return response()->json(['data' => $cabor]);
     }
 
