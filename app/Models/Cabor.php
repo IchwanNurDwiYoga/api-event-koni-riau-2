@@ -19,4 +19,9 @@ class Cabor extends Model
     {
         return $this->hasMany(Atlet::class);
     }
+
+    public function prestasi()
+    {
+        return $this->hasMany(Prestasi::class);
+    }
 }
