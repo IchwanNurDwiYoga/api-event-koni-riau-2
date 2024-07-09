@@ -14,6 +14,6 @@ class PrestasiApiController extends Controller
         $id = intval($id);
         $atlet = Atlet::where('id', $id)->first();
         $prestasi = Prestasi::whereJsonContains('atlet_id', $id)->with('event:id,nama,jenis,lokasi,foto', 'cabor:id,nama', 'nomor_pertandingan:id,nomor,gender', 'fase:id,fase')->get();
-        return response()->json(['data' => $prestasi]);
+        return response()->json(['data' => ['atlet' => $atlet, 'prestasi' => $prestasi]]);
     }
 }
