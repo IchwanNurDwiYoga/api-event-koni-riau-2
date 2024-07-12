@@ -17,7 +17,7 @@ class AtletApiController extends Controller
 
     public function atletDetail($id)
     {
-        $atlet = Atlet::where('id', $id)->with('profil:id,nama,foto', 'cabor:id,nama,foto')->first();
+        $atlet = Atlet::where('id', $id)->with('profil', 'cabor:id,nama,foto')->first();
 
         return response()->json(['data' => $atlet]);
     }
